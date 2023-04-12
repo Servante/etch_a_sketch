@@ -1,4 +1,4 @@
-
+// create grid 
 
 const createGrid = function(x) {
   for(let r = 0; r < x; r++) {
@@ -17,18 +17,35 @@ const createGrid = function(x) {
 
 createGrid(16);
 
-let cells = document.querySelectorAll('.cell');
 
-// let clickEvent = () => {
-//   console.log("hover");
-// }
+
+
+//caching DOM
+
+const grid = document.getElementById("container");
+let cells = document.querySelectorAll('.cell');
+let isDrawing = false;
+
+
+// draw logic
+
+cells.forEach((cell) => {
+  cell.addEventListener('mouseover', function(event) {
+    if(isDrawing == true) {
+      event.target.style.backgroundColor = "black";
+    };
+  });
+});
 
 cells.forEach((cell) => {
   cell.addEventListener('mousedown', function(event) {
+    isDrawing = true;
     event.target.style.backgroundColor = "black";
   });
 });
 
-
-
-// https://stackoverflow.com/questions/68470917/how-to-draw-via-mouse-click-without-using-the-canvas-element
+cells.forEach((cell) => {
+  cell.addEventListener('mouseup', function(event) {
+    isDrawing = false;
+  });
+});
