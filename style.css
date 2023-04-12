@@ -3,6 +3,7 @@
   width: 32px;
   height: 42px;
   background-color: maroon;
+  -webkit-user-select: none;  /* issues with mouseup events not firing, makes element non-draggable */
 }
 
 .row {
@@ -10,5 +11,5 @@
 }
 
 .container {
-  
+
 }
