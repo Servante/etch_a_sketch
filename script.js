@@ -18,8 +18,6 @@ const createGrid = function(x) {
 createGrid(16);
 
 
-
-
 //caching DOM
 
 const grid = document.getElementById("container");
