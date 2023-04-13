@@ -1,8 +1,47 @@
+@font-face {
+  font-family: 'Rondo';
+  src: url('rondo.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
+  height: 100vh;
+  margin: 0;
+  background-color: #4E4E50;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
 }
+
+#title h1 {
+  margin: 0;
+  font-family: 'Rondo', sans-serif;
+  font-size: 64px;
+}
+
+#buttons {
+  display: flex;
+  justify-content: space-around;
+  width: 550px;
+}
+
+.button {
+  border-radius: 8px;
+  padding: 6px;
+  font-size: 21px;
+  font-family: system-ui;
+  background-color: #1A1A1D;
+  color: #C3073F;
+  transition-duration: 0.5s;
+}
+
+.button:hover {
+  background-color: #C3073F;
+  color: #1A1A1D;
+}
+
 #container {
   display: flex;
   flex-direction: column;
@@ -17,8 +56,8 @@ body {
 }
 
 .cell {
-  background-color: maroon;
-  -webkit-user-select: none;  /* issues with mouseup events not firing, makes element non-draggable */
+  background-color: #950740;
+  -webkit-user-select: none;   /* issues with mouseup events not firing, makes element non-draggable */  
   flex: 1 1 auto;
 }
 
