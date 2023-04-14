@@ -13,6 +13,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  gap: 12px;
+  overflow: scroll;
 }
 
 #title h1 {
@@ -61,5 +63,8 @@ body {
   flex: 1 1 auto;
 }
 
+.erase-board {
+  margin-bottom: 8px;
+}
 
 
