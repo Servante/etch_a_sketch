@@ -17,11 +17,16 @@ const createGrid = function(x) {
 
 createGrid(16);
 
+const getInput = function() {
+  prompt("How many squares? (Please choose between 8 and 100)")
+};
+
 
 //caching DOM
 
 const grid = document.getElementById("container");
-let cells = document.querySelectorAll('.cell');
+const resize = document.getElementById("resize");
+let cells = document.querySelectorAll(".cell");
 let isDrawing = false;
 
 
@@ -47,3 +52,19 @@ cells.forEach((cell) => {
     isDrawing = false;
   });
 });
+
+// resize 
+
+// resize function
+
+// -listens for click on resize button
+// -prompts alert box asking for number of squares
+// -calls resize grid with inputted data
+
+const resizeGrid = function() {
+  let input = getInput();
+}
+
+
+resize.addEventListener('mousedown', function(event) {
+  getInput()});
