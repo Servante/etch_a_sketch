@@ -3,6 +3,7 @@
 let current_size = 16;
 const grid = document.getElementById("container");
 const resize = document.getElementById("resize");
+const clear = document.getElementById("clear");
 
 //drawing logic and adding event listeners to cells
 
@@ -57,12 +58,22 @@ createGrid(current_size);
 const resizeGrid = function() {
   let input = prompt("How many squares? (Please choose between 8 and 100)");
   let mod_input = parseInt(input);
-  let current_size = mod_input;
+  current_size = mod_input;
   grid.innerHTML = '';
   createGrid(current_size);
 }
 
 resize.addEventListener('mousedown', function(event) {
-  resizeGrid()});
+  resizeGrid()
+});
 
+//clear grid
 
+const clearGrid = function() {
+  grid.innerHTML = '';
+  createGrid(current_size);
+}
+
+clear.addEventListener('mousedown', function(event) {
+  clearGrid()
+});
