@@ -53,15 +53,38 @@ const createGrid = function(x) {
 
 createGrid(current_size);
 
+
+//getInput
+
+const getInput = function() {
+  let input = prompt("How many squares? (Please choose between 8 and 100)");
+  if(checkResponse(input) == true) {
+    updateCurrent(parseInt(input));
+    return parseInt(input); 
+  }else {
+    alert("Please enter a number between 8 and 100");
+  };    
+};
+
+const checkResponse = function(input) {
+  if(!isNaN(parseInt(input)) && parseInt(input) >= 8 && parseInt(input) <= 100) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+const updateCurrent = function(input) {
+  current_size = input;
+};
+
 // resize function
 
 const resizeGrid = function() {
-  let input = prompt("How many squares? (Please choose between 8 and 100)");
-  let mod_input = parseInt(input);
-  current_size = mod_input;
-  grid.innerHTML = '';
-  createGrid(current_size);
-}
+  console.log("test");
+  clearGrid();
+  createGrid(getInput());
+};
 
 resize.addEventListener('mousedown', function(event) {
   resizeGrid()
@@ -77,3 +100,8 @@ const clearGrid = function() {
 clear.addEventListener('mousedown', function(event) {
   clearGrid()
 });
+
+//darken
+
+//rainbow
+
