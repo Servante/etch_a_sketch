@@ -74,7 +74,7 @@ const checkResponse = function(input) {
   }
 };
 
-const updateCurrent = function(input) {
+const updateCurrent = function(input) {  //refactor to arrow
   current_size = input;
 };
 
