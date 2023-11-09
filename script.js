@@ -103,5 +103,8 @@ clear.addEventListener('mousedown', function(event) {
 
 //darken
 
+
+
+
 //rainbow
 
