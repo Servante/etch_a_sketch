@@ -4,11 +4,21 @@
 let current_size = 16;
 const grid = document.getElementById("container");
 const resize = document.getElementById("resize");
+const defaultButton = document.getElementById("default");
 const darkenButton = document.getElementById("darken");
 const clear = document.getElementById("clear");
 let def = true;
 let darken = false;
 let rainbow = false;
+
+
+//default button
+
+defaultButton.addEventListener('mousedown', function(event) {
+  def = true;
+  darken = false;
+  rainbow = false;
+});
 
 
 //drawing logic and adding event listeners to cells
