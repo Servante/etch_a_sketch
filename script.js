@@ -1,9 +1,15 @@
 //caching the DOM
 
+
 let current_size = 16;
 const grid = document.getElementById("container");
 const resize = document.getElementById("resize");
+const darkenButton = document.getElementById("darken");
 const clear = document.getElementById("clear");
+let def = true;
+let darken = false;
+let rainbow = false;
+
 
 //drawing logic and adding event listeners to cells
 
@@ -13,8 +19,10 @@ const addEventListeners = function() {
 
   cells.forEach((cell) => {
     cell.addEventListener('mouseover', function(event) {
-      if(isDrawing == true) {
+      if(isDrawing == true && def == true) {
         event.target.style.backgroundColor = "black";
+      } else if (isDrawing == true && darken == true) {
+        darkenCell(event)
       };
     });
   });
@@ -22,7 +30,11 @@ const addEventListeners = function() {
   cells.forEach((cell) => {
     cell.addEventListener('mousedown', function(event) {
       isDrawing = true;
-      event.target.style.backgroundColor = "black";
+      if(def == true) {
+        event.target.style.backgroundColor = "black";
+      } else if(darken == true) {
+        darkenCell(event);
+      };
     });
   });
   
@@ -103,6 +115,26 @@ clear.addEventListener('mousedown', function(event) {
 
 //darken
 
+darkenButton.addEventListener('mousedown', function(event) {
+  darken = true;
+  def = false;
+  rainbow = false;
+});
+
+const darkenCell = function(event) {
+  const currentColor = getComputedStyle(event.target).backgroundColor;
+
+  const rgbMatch = currentColor.match(/\d+/g);
+  const red = parseInt(rgbMatch[0]);
+  const green = parseInt(rgbMatch[1]);
+  const blue = parseInt(rgbMatch[2]);
+
+  const darkenedRed = Math.max(0, red - 25.5);
+  const darkenedGreen = Math.max(0, green - 25.5);
+  const darkenedBlue = Math.max(0, blue - 25.5);
+
+  event.target.style.backgroundColor = `rgb(${darkenedRed}, ${darkenedGreen}, ${darkenedBlue})`;  
+}
 
 
 
