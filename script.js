@@ -13,13 +13,28 @@ let darken = false;
 let rainbow = false;
 
 
-//default button
+//event listeners for mode buttons
 
-defaultButton.addEventListener('mousedown', function(event) {
-  def = true;
-  darken = false;
-  rainbow = false;
+defaultButton.addEventListener('click', function(event) {
+  setMode(true, false, false);
 });
+
+darkenButton.addEventListener('click', function(event) {
+  setMode(false, true, false);
+});
+
+rainbowButton.addEventListener('click', function(event) {
+  setMode(false, false, true);
+});
+
+
+//function to set drawing mode
+
+function setMode(defaultMode, darkenMode, rainbowMode) {
+  def = defaultMode;
+  darken = darkenMode;
+  rainbow = rainbowMode;
+};
 
 
 //drawing logic and adding event listeners to cells
@@ -58,7 +73,7 @@ const addEventListeners = function() {
       isDrawing = false;
     });
   });
-}
+};
 
 // create grid 
 
@@ -74,7 +89,8 @@ const createGrid = function(x) {
     container.appendChild(row);
   }
   addEventListeners();
-}
+};
+
 
 //build default grid
 
@@ -105,11 +121,13 @@ const updateCurrent = function(input) {  //refactor to arrow
   current_size = input;
 };
 
+
 //gets random number for rainbow function
 
 function getRandom(min, max) {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 };
+
 
 // resize function
 
@@ -123,6 +141,7 @@ resize.addEventListener('mousedown', function(event) {
   resizeGrid()
 });
 
+
 //clear grid
 
 const clearGrid = function() {
@@ -134,13 +153,8 @@ clear.addEventListener('mousedown', function(event) {
   clearGrid()
 });
 
-//darken
 
-darkenButton.addEventListener('mousedown', function(event) {
-  darken = true;
-  def = false;
-  rainbow = false;
-});
+//darken
 
 const darkenCell = function(event) {
   const currentColor = getComputedStyle(event.target).backgroundColor;
@@ -155,18 +169,10 @@ const darkenCell = function(event) {
   const darkenedBlue = Math.max(0, blue - 25.5);
 
   event.target.style.backgroundColor = `rgb(${darkenedRed}, ${darkenedGreen}, ${darkenedBlue})`;  
-}
-
+};
 
 
 //rainbow
-
-rainbowButton.addEventListener('mousedown', function(event) {
-  darken = false;
-  def = false;
-  rainbow = true;
-})
-
 
 const rainbowCell = function(event) {
   const newRed = getRandom(1, 255);
@@ -175,6 +181,6 @@ const rainbowCell = function(event) {
 
   event.target.style.backgroundColor = `rgb(${newRed}, ${newGreen}, ${newBlue})`;
 
-}
+};
 
 
