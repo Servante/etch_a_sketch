@@ -6,6 +6,7 @@ const grid = document.getElementById("container");
 const resize = document.getElementById("resize");
 const defaultButton = document.getElementById("default");
 const darkenButton = document.getElementById("darken");
+const rainbowButton = document.getElementById("rainbow");
 const clear = document.getElementById("clear");
 let def = true;
 let darken = false;
@@ -31,8 +32,10 @@ const addEventListeners = function() {
     cell.addEventListener('mouseover', function(event) {
       if(isDrawing == true && def == true) {
         event.target.style.backgroundColor = "black";
-      } else if (isDrawing == true && darken == true) {
-        darkenCell(event)
+      } else if(isDrawing == true && darken == true) {
+        darkenCell(event);
+      } else if(isDrawing == true && rainbow == true) {
+        rainbowCell(event);
       };
     });
   });
@@ -44,6 +47,8 @@ const addEventListeners = function() {
         event.target.style.backgroundColor = "black";
       } else if(darken == true) {
         darkenCell(event);
+      } else if(raindbow == true) {
+        rainbowCell(event);
       };
     });
   });
@@ -100,6 +105,12 @@ const updateCurrent = function(input) {  //refactor to arrow
   current_size = input;
 };
 
+//gets random number for rainbow function
+
+function getRandom(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
 // resize function
 
 const resizeGrid = function() {
@@ -149,4 +160,21 @@ const darkenCell = function(event) {
 
 
 //rainbow
+
+rainbowButton.addEventListener('mousedown', function(event) {
+  darken = false;
+  def = false;
+  rainbow = true;
+})
+
+
+const rainbowCell = function(event) {
+  const newRed = getRandom(1, 255);
+  const newGreen = getRandom(1, 255);
+  const newBlue = getRandom(1, 255);
+
+  event.target.style.backgroundColor = `rgb(${newRed}, ${newGreen}, ${newBlue})`;
+
+}
+
 
