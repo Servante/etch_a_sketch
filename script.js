@@ -111,7 +111,7 @@ const checkResponse = function(input) {
   return !isNaN(input) && input >= minInput && input <= maxInput;
 };
 
-const updateCurrent = function(input) {  //refactor to arrow
+const updateCurrent = function(input) {  
   current_size = input;
 };
 
@@ -132,7 +132,7 @@ const resizeGrid = function() {
 };
 
 resize.addEventListener('mousedown', function(event) {
-  resizeGrid()
+  resizeGrid();
 });
 
 
@@ -144,7 +144,7 @@ const clearGrid = function() {
 }
 
 clear.addEventListener('mousedown', function(event) {
-  clearGrid()
+  clearGrid();
 });
 
 
