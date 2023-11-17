@@ -2,6 +2,8 @@
 
 
 let current_size = 16;
+const minInput = 8;
+const maxInput = 100;
 const grid = document.getElementById("container");
 const resize = document.getElementById("resize");
 const defaultButton = document.getElementById("default");
@@ -107,7 +109,7 @@ const getInput = function() {
 };
 
 const checkResponse = function(input) {
-  if(!isNaN(parseInt(input)) && parseInt(input) >= 8 && parseInt(input) <= 100) {
+  if(!isNaN(input) && input >= minInput && input <= maxInput) {
     return true;
   } else {
     return false;
