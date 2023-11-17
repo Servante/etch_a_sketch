@@ -96,10 +96,11 @@ createGrid(current_size);
 //getInput
 
 const getInput = function() {
-  let input = prompt("How many squares? (Please choose between 8 and 100)");
+  const input = prompt("How many squares? (Please choose between 8 and 100)");
+  const inputNumber = parseInt(input);
   if(checkResponse(input) == true) {
-    updateCurrent(parseInt(input));
-    return parseInt(input); 
+    updateCurrent(inputNumber);
+    return inputNumber; 
   }else {
     alert("Please enter a number between 8 and 100");
   };    
