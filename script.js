@@ -53,9 +53,7 @@ const addEventListeners = function() {
         rainbowCell(event);
       };
     });
-  });
-  
-  cells.forEach((cell) => {
+
     cell.addEventListener('mousedown', function(event) {
       isDrawing = true;
       if(def == true) {
@@ -66,9 +64,7 @@ const addEventListeners = function() {
         rainbowCell(event);
       };
     });
-  });
-  
-  cells.forEach((cell) => {
+
     cell.addEventListener('mouseup', function(event) {
       isDrawing = false;
     });
