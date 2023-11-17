@@ -108,11 +108,7 @@ const getInput = function() {
 };
 
 const checkResponse = function(input) {
-  if(!isNaN(input) && input >= minInput && input <= maxInput) {
-    return true;
-  } else {
-    return false;
-  }
+  return !isNaN(input) && input >= minInput && input <= maxInput;
 };
 
 const updateCurrent = function(input) {  //refactor to arrow
