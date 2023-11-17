@@ -62,7 +62,7 @@ const addEventListeners = function() {
         event.target.style.backgroundColor = "black";
       } else if(darken == true) {
         darkenCell(event);
-      } else if(raindbow == true) {
+      } else if(rainbow == true) {
         rainbowCell(event);
       };
     });
