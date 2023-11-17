@@ -106,7 +106,7 @@ const getInput = function() {
 };
 
 const checkResponse = function(input) {
-  if(!isNaN(parseInt(input)) && parseInt(input) >= 8 && parseInt(input) <= 100) {
+  if(!isNaN(input) && input >= 8 && input <= 100) {
     return true;
   } else {
     return false;
