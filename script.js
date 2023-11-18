@@ -1,9 +1,6 @@
 //caching the DOM
 
-
 let current_size = 16;
-const minInput = 8;
-const maxInput = 100;
 const grid = document.getElementById("container");
 const resize = document.getElementById("resize");
 const defaultButton = document.getElementById("default");
@@ -73,6 +70,7 @@ const addEventListeners = function() {
   });
 };
 
+
 // create grid 
 
 const createGrid = function(x) {
@@ -98,28 +96,24 @@ createGrid(current_size);
 //getInput
 
 const getInput = function() {
-  let input = prompt("How many squares? (Please choose between 8 and 100)");
-  if(checkResponse(input) == true) {
-    updateCurrent(parseInt(input));
-    return parseInt(input); 
+  const isValidInput = function(input) {
+    const  MIN_GRID_INPUT = 8;
+    const MAX_GRID_INPUT = 100;
+
+    return !isNaN(input) && input >= MIN_GRID_INPUT && input <= MAX_GRID_INPUT;
+  };
+
+  const updateCurrent = function(input) {  
+    current_size = input;
+  };
+
+  let input = parseInt(prompt("How many squares? (Please choose between 8 and 100)"));
+  if(isValidInput(input) == true) {
+    updateCurrent(input);
+    return input; 
   }else {
     alert("Please enter a number between 8 and 100");
-  };    
-};
-
-const checkResponse = function(input) {
-  return !isNaN(input) && input >= minInput && input <= maxInput;
-};
-
-const updateCurrent = function(input) {  
-  current_size = input;
-};
-
-
-//gets random number for rainbow function
-
-function getRandom(min, max) {
-	return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
 };
 
 
@@ -169,12 +163,15 @@ const darkenCell = function(event) {
 //rainbow
 
 const rainbowCell = function(event) {
+  const getRandom = function(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
+
   const newRed = getRandom(1, 255);
   const newGreen = getRandom(1, 255);
   const newBlue = getRandom(1, 255);
-
+  
   event.target.style.backgroundColor = `rgb(${newRed}, ${newGreen}, ${newBlue})`;
-
 };
 
 
