@@ -96,11 +96,6 @@ createGrid(current_size);
 //getInput
 
 const getInput = function() {
-  const input = prompt("How many squares? (Please choose between 8 and 100)");
-  const inputNumber = parseInt(input);
-  if(checkResponse(input) == true) {
-    updateCurrent(inputNumber);
-    return inputNumber; 
   const isValidInput = function(input) {
     const  MIN_GRID_INPUT = 8;
     const MAX_GRID_INPUT = 100;
