@@ -1,9 +1,6 @@
 //caching the DOM
 
-
 let current_size = 16;
-const minInput = 8;
-const maxInput = 100;
 const grid = document.getElementById("container");
 const resize = document.getElementById("resize");
 const defaultButton = document.getElementById("default");
@@ -62,7 +59,7 @@ const addEventListeners = function() {
         event.target.style.backgroundColor = "black";
       } else if(darken == true) {
         darkenCell(event);
-      } else if(raindbow == true) {
+      } else if(rainbow == true) {
         rainbowCell(event);
       };
     });
@@ -72,6 +69,7 @@ const addEventListeners = function() {
     });
   });
 };
+
 
 // create grid 
 
@@ -103,28 +101,24 @@ const getInput = function() {
   if(checkResponse(input) == true) {
     updateCurrent(inputNumber);
     return inputNumber; 
+  const isValidInput = function(input) {
+    const  MIN_GRID_INPUT = 8;
+    const MAX_GRID_INPUT = 100;
+
+    return !isNaN(input) && input >= MIN_GRID_INPUT && input <= MAX_GRID_INPUT;
+  };
+
+  const updateCurrent = function(input) {  
+    current_size = input;
+  };
+
+  let input = parseInt(prompt("How many squares? (Please choose between 8 and 100)"));
+  if(isValidInput(input) == true) {
+    updateCurrent(input);
+    return input; 
   }else {
     alert("Please enter a number between 8 and 100");
-  };    
-};
-
-const checkResponse = function(input) {
-  if(!isNaN(input) && input >= minInput && input <= maxInput) {
-    return true;
-  } else {
-    return false;
-  }
-};
-
-const updateCurrent = function(input) {  //refactor to arrow
-  current_size = input;
-};
-
-
-//gets random number for rainbow function
-
-function getRandom(min, max) {
-	return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
 };
 
 
@@ -137,7 +131,7 @@ const resizeGrid = function() {
 };
 
 resize.addEventListener('mousedown', function(event) {
-  resizeGrid()
+  resizeGrid();
 });
 
 
@@ -149,7 +143,7 @@ const clearGrid = function() {
 }
 
 clear.addEventListener('mousedown', function(event) {
-  clearGrid()
+  clearGrid();
 });
 
 
@@ -174,12 +168,15 @@ const darkenCell = function(event) {
 //rainbow
 
 const rainbowCell = function(event) {
+  const getRandom = function(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
+
   const newRed = getRandom(1, 255);
   const newGreen = getRandom(1, 255);
   const newBlue = getRandom(1, 255);
-
+  
   event.target.style.backgroundColor = `rgb(${newRed}, ${newGreen}, ${newBlue})`;
-
 };
 
 
