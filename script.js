@@ -125,7 +125,7 @@ const resizeGrid = function() {
   createGrid(getInput());
 };
 
-resize.addEventListener('mousedown', function(event) {
+resize.addEventListener('click', function(event) {
   resizeGrid();
 });
 
@@ -137,7 +137,7 @@ const clearGrid = function() {
   createGrid(current_size);
 }
 
-clear.addEventListener('mousedown', function(event) {
+clear.addEventListener('click', function(event) {
   clearGrid();
 });
 
