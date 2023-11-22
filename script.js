@@ -1,5 +1,3 @@
-//caching the DOM
-
 let current_size = 16;
 const grid = document.getElementById("container");
 const resize = document.getElementById("resize");
@@ -12,7 +10,7 @@ let darken = false;
 let rainbow = false;
 
 
-//event listeners for mode buttons
+//event listeners for drawing mode buttons
 
 defaultButton.addEventListener('click', function(event) {
   setMode(true, false, false);
@@ -27,7 +25,7 @@ rainbowButton.addEventListener('click', function(event) {
 });
 
 
-//function to set drawing mode
+//setMode() - sets mode for default, darken and rainbow drawing options
 
 function setMode(defaultMode, darkenMode, rainbowMode) {
   def = defaultMode;
@@ -36,7 +34,8 @@ function setMode(defaultMode, darkenMode, rainbowMode) {
 };
 
 
-//drawing logic and adding event listeners to cells
+//addEventLIsteners() - loops through grid cells and attaches event listeners which apply 
+//drawing logic. 
 
 const addEventListeners = function() {
   let cells = document.querySelectorAll(".cell");
@@ -71,7 +70,7 @@ const addEventListeners = function() {
 };
 
 
-// create grid 
+//createGrid() - creates a grid and adds event listeners 
 
 const createGrid = function(x) {
   for(let r = 0; r < x; r++) {
@@ -93,7 +92,7 @@ const createGrid = function(x) {
 createGrid(current_size);
 
 
-//getInput
+//getInput() - requests user input and verifies if input is valid 
 
 const getInput = function() {
   const isValidInput = function(input) {
@@ -117,7 +116,8 @@ const getInput = function() {
 };
 
 
-// resize function
+//resizeGrid() - clears the grid and then creates a new one with a grid size determined by 
+//user input.
 
 const resizeGrid = function() {
   console.log("test");
@@ -130,7 +130,7 @@ resize.addEventListener('click', function(event) {
 });
 
 
-//clear grid
+//clearGrid() - erases grid and creates a new one
 
 const clearGrid = function() {
   grid.innerHTML = '';
@@ -142,7 +142,7 @@ clear.addEventListener('click', function(event) {
 });
 
 
-//darken
+// darkenCell() - darken cells by adding 25.5 to each RGB number with every mouseover
 
 const darkenCell = function(event) {
   const currentColor = getComputedStyle(event.target).backgroundColor;
@@ -160,7 +160,7 @@ const darkenCell = function(event) {
 };
 
 
-//rainbow
+//rainbowCell - draws with a randomly selected color 
 
 const rainbowCell = function(event) {
   const getRandom = function(min, max) {
