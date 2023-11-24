@@ -54,13 +54,13 @@ body {
 
 .row {
   display: flex;
-  flex: 1 1 auto;
+  flex: 1;
 }
 
 .cell {
   background-color: #950740;
   -webkit-user-select: none;   /* issues with mouseup events not firing, makes element non-draggable */  
-  flex: 1 1 auto;
+  flex: 1;
 }
 
 #clear-grid {

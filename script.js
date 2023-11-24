@@ -112,6 +112,7 @@ const getInput = function() {
     return input; 
   }else {
     alert("Please enter a number between 8 and 100");
+    return getInput();
   };
 };
 
@@ -120,7 +121,6 @@ const getInput = function() {
 //user input.
 
 const resizeGrid = function() {
-  console.log("test");
   clearGrid();
   createGrid(getInput());
 };
@@ -134,7 +134,6 @@ resize.addEventListener('click', function(event) {
 
 const clearGrid = function() {
   grid.innerHTML = '';
-  createGrid(current_size);
 }
 
 clear.addEventListener('click', function(event) {
