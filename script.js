@@ -67,6 +67,10 @@ const addEventListeners = function() {
       isDrawing = false;
     });
   });
+
+  grid.addEventListener('mouseleave', function(event){
+    isDrawing = false;
+  });
 };
 
 
