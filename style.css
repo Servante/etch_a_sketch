@@ -17,6 +17,13 @@ body {
   overflow: scroll;
 }
 
+#main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+}
+
 #title h1 {
   margin: 0;
   font-family: 'Rondo', sans-serif;
