@@ -1,7 +1,7 @@
 
 # Etch-a-Sketch
 
-##Description
+## Description
 
 Etch-a-Sketch is a simple drawing application that allows users to create artistic designs by drawing on a grid. It simulates the classic Etch-a-Sketch toy, providing a nostalgic and creative experience.
 
@@ -36,7 +36,7 @@ To run the Etch-a-Sketch locally, follow these steps:
 
 ## Technologies Used
 
-- HTML
-- CSS
-- JavaScript
+- **HTML**
+- **CSS**
+- **JavaScript**
 
