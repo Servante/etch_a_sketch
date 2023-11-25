@@ -142,6 +142,7 @@ const clearGrid = function() {
 
 clear.addEventListener('click', function(event) {
   clearGrid();
+  createGrid(current_size);
 });
 
 
