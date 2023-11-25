@@ -16,7 +16,7 @@ Etch-a-Sketch is a simple drawing application that allows users to create artist
 
 ## How to Use
 
-1. Visit the (demo page)[https://servante.github.io/etch_a_sketch/].
+1. Visit the [demo page](https://servante.github.io/etch_a_sketch/).
 2. Resize the grid by clicking the "Resize Grid" button and entering the desired size.
 3. Choose a drawing mode using the provided buttons.
 4. Move your mouse over the cells to draw on the grid.
